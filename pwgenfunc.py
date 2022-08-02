@@ -1,9 +1,10 @@
 from random import randint
 import sys
-
+#TO ADD: WHEN USING -C IN THE COMMAND LINE WILL BRING UP SEPARATE MENU TO ADD OR REMOVE SPECIAL CHARACTERS. DEFAULT VALUES REMAIN IN CASE YOU WANT TO REVERT TO DEFAULT 
 
 length = 12 
-special = " !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+special = ['!', '&', '%', '#', '^', '*', '@', '$']
+
 
 chars = ["abcdefghijklmnopqrstuvwxyz",
             "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
