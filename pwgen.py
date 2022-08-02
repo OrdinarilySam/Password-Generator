@@ -1,26 +1,35 @@
-from random import *
+import random
 
-#global variables
-lower = "abcdefghijklmnopqrstuvwxyz"
-upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-numbers = "0123456789"
-symbols = " !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+class Password:
+
+    # variables to check and store the password
+    chars = ["abcdefghijklmnopqrstuvwxyz",
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            "0123456789",
+            " !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"]
+    password = ""
+    
+    # initializes objects with parameters
+    def __init__(self, length=12):
+        self.length = length
+
+    # sets the value for when the object is called on 
+    def __str__(self):
+        return f"Your password is {self.password}"
+
+    @classmethod
+    def generate(cls):
+        valid = False
+        while not valid:
+            ... #
+
+    def check(self):
+        ...
+    
 
 def main():
-    print(gen_passwd(12))
-
-def gen_passwd(length):
-    valid = False
-    string = lower  + upper + numbers + symbols
-    while not valid:
-        pwd = ""
-        for i in range(length):
-            pwd += pwd.join(string[randint(0,len(string)-1)])
-        valid = check_passwd(pwd)
-    return pwd
-
-def check_passwd(pswd):
-    pass
+    password = Password().generate()
+    print(password)
 
 if __name__ == "__main__":
     main()
