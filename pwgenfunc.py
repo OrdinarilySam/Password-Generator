@@ -1,8 +1,8 @@
 from random import randint
 import sys
 
-# Variables to be changed with sys args
-length = 12 # -x[num] to change
+
+length = 12 
 special = " !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
 
 chars = ["abcdefghijklmnopqrstuvwxyz",
@@ -10,13 +10,7 @@ chars = ["abcdefghijklmnopqrstuvwxyz",
             "0123456789"]
 chars.append(special)
 
-# def get_length():
-#     while True:
-#         try:
-#             length = int(input("Password Length: ").strip())
-#             return length
-#         except ValueError:
-#             pass
+
 
 def check_args():
     for arg in sys.argv:
