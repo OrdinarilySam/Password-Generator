@@ -1,7 +1,11 @@
 # Password-Generator
-## WIP
 
-This is a little side project I am doing to practice my python.
+In terminal use sys args to remove characters
 
-It will request some information from the user based on the length and what characters will be used in the password, then generate and display a password for the user to use.
-It will make sure that it has at least one of each type of character that the user has requested in the password.
+- \-x [int] changes the length
+- \-l removes lowercase letters
+- \-u removes uppercase letters
+- \-n removes numbers
+- \-s removes special characters
+
+Currently no way to change the special characters used unless you edit the code, but I will make args to change those as well
