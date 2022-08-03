@@ -1,8 +1,9 @@
 from random import randint
 import sys
-#TO ADD: WHEN USING -C IN THE COMMAND LINE WILL BRING UP SEPARATE MENU TO ADD OR REMOVE SPECIAL CHARACTERS. DEFAULT VALUES REMAIN IN CASE YOU WANT TO REVERT TO DEFAULT 
+
 
 length = 12 
+all_special = ["!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"]
 special = ['!', '&', '%', '#', '^', '*', '@', '$']
 
 
@@ -21,6 +22,8 @@ def check_args():
                 if l >= 4:
                     global length
                     length = int(l)
+                else:
+                    print("Specified length too short, using default")
             except ValueError:
                 pass
         elif arg == "-l":
@@ -31,6 +34,8 @@ def check_args():
             chars.remove("0123456789")
         elif arg == "-s":
             chars.remove(special)
+        elif arg == "-c":
+            check_special()
 
 def gen_password():
     while True:
@@ -48,13 +53,33 @@ def check_password(password):
     for cat in chars:
         valid = False
         for char in password:
-            if cat.find(char) > -1:
+            try:
+                cat.index(char)
                 valid = True
                 break
+            except ValueError:
+                pass
         if not valid:
             return False
     return True
 
+def check_special():
+    print("The current special characters are:", special)
+    print("Note: not all special characters will appear in the password\nType all for all special characters")
+    chars = input("Which characters would you like to add/remove? ")
+    if chars.lower().strip() == "all":
+        special = all_special
+        return
+    for char in chars:
+        try:
+            special.pop(special.index(char))
+        except ValueError:
+            try:
+                index = all_special.index(char)
+                special.append(all_special[index])
+            except ValueError:
+                print(f"Character {char} not allowed")
+    
 
 def main():
     if len(sys.argv) >= 2:
