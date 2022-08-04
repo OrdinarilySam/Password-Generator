@@ -35,7 +35,9 @@ def check_args():
         elif arg == "-s":
             chars.remove(special)
         elif arg == "-c":
+            chars.remove(special)
             check_special()
+            chars.append(special)
 
 def gen_password():
     while True:
